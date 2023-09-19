@@ -1,17 +1,16 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
-import Signup from './components/signup'
-import Signin from './components/signin'
-
+import './style.css';
+import SignUpForm from './components/login/signup.js';
+import SignInForm from './components/login/signin.js';
 function App() {
 
   return (
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Signup />}></Route>
-          <Route path="/signin" element={<Signin />}></Route>
+          <Route path="/" element={<SignUpForm />} />
+          <Route path="/signin" element={<SignInForm />} />
         </Routes>
       </Router>
     </>
