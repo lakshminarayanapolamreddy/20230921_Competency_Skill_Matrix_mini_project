@@ -10,7 +10,7 @@
     margin-bottom: 5%;
     
 }
-.email-input-feild{
+.email-input-feil{
     outline: none;
     border: none;
     background-color: #F7F9FB !important;
@@ -22,14 +22,15 @@
     margin-top: 5%;
     
 }
-.name-input-feild{
+.name-input-feild, .designation-input-feild{
     
     outline: none;
     border: none;
     background-color: #F7F9FB !important;
     margin-bottom: 5%;
 }
-.name-input-feild:focus{
+.name-input-feild:focus,
+.designation-input-feild:focus{
     border: 1px solid  #2b7c97 !important;
     background-color: #ffffff !important;
 }

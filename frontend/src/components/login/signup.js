@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import AdminService from "../../services/AdminService";
+import LoginService from "../../services/LoginService";
 import { useState } from 'react';
 function SignUpForm() {
   const [state, setState] = useState({
@@ -18,7 +18,7 @@ function SignUpForm() {
   const handleOnSubmit = evt => {
     evt.preventDefault();
     console.log(state);
-    let data= AdminService.saveDetails(state).then((d)=>{
+    let data= LoginService.saveDetails(state).then((d)=>{
       if (d.data.message==="User added"){
         toast.success(d.data.message);
       } else if (d.data.message==="Password must have a capital letter a small letter and a number and include any special character"){
@@ -71,6 +71,22 @@ function SignUpForm() {
           placeholder="Password"
           className="password-input-feild"
         />
+        <input 
+          type='text' 
+          name = 'designation'
+          value = {state.designation}
+          onChange={handleChange}
+          placeholder='Designation' 
+          className='designation-input-feild'
+        />
+        <input
+          type='text'
+          name = 'mobile'
+          value={state.mobile}
+          placeholder='Mobile'
+          className='mobile-input-feild'
+        />
+        <button className='add-skill-button'>ADD</button>
         <button type = 'submit' className = 'sign-up-button'>Sign Up</button>
       </form>
     </div>
