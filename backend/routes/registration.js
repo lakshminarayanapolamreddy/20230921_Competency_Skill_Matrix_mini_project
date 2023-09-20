@@ -15,3 +15,4 @@ router.post('/',Useradmin.create_user_admin);
 //   res.send('respond with a resource');
 // }
 module.exports = router;
+

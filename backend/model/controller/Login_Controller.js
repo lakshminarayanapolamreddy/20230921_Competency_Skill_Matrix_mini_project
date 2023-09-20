@@ -13,18 +13,11 @@ const logindetailscheck = async (req, res) => {
       const existingUser = await UA_table.findOne({ where: { Email: email ,Password:password }});
         console.log(existingUser,"BAckend signin")
       if (existingUser) {
-
         const token = jwt.sign({email: existingUser.Email}, 'JMAN_USER_LOGIN',{expiresIn: "2d",});
-
         // Update the JWT column in the backend database
         // await existingUser.update({ JWT: token });
-
-          
-        
           // cookies.set('token',token)
-
-          console.log(token);
-
+        console.log(token);
         res.status(200).json({ message: "Login Successful" ,userdata:existingUser,  token:token});
       } else{
         if(existingUser.Email !== email){
@@ -32,8 +25,7 @@ const logindetailscheck = async (req, res) => {
         }
         if(existingUser.Password !== password){
             res.status(200).json({message:"Password is incorrect!"})
-        }
-        
+        } 
       }
     } catch (error) {
       console.error(error.message);
@@ -44,16 +36,13 @@ const logindetailscheck = async (req, res) => {
   }
 };
 
-
 const logout = async (req, res) => {
   // Implement logout functionality here
   try {
     // Get the user ID from the authenticated request (you'll need middleware for this)
     const userId = req.user.userId; // Assuming you have middleware that decodes the JWT token and adds the user object to the request
-
     // Find the user in the database by ID
     const user = await UA_table.findByPk(userId);
-
     if (user) {
       // Clear the JWT token in the database
       await user.update({ JWT: null });
@@ -66,16 +55,6 @@ const logout = async (req, res) => {
     res.status(500).json({ message: "Logout failed" });
   }
 };
-
-
-
-
-
-
-
-
-
-
 
 module.exports = {
     logindetailscheck,

@@ -13,6 +13,20 @@ function SignUpForm() {
     address:"",
     blood_group:"",
   });
+  const [skills, setSkills] = useState([]);
+  const handleAddSkill = () => {
+    setSkills([...skills, ""]);
+  };
+  const handleRemoveSkill = (index) => {
+    const updatedSkills = [...skills];
+    updatedSkills.splice(index, 1);
+    setSkills(updatedSkills);
+  };
+  const handleSkillChange = (event, index) => {
+    const updatedSkills = [...skills];
+    updatedSkills[index] = event.target.value;
+    setSkills(updatedSkills);
+  }
   const handleChange = evt => {
     const value = evt.target.value;
     setState({
@@ -50,75 +64,125 @@ function SignUpForm() {
     }
   };
   return (
-    <div className="">
+    <div className="Sign-up">
       <form onSubmit={handleOnSubmit}>
         <h1 className="title">Create Account</h1>
-        <input
-          type="text"
-          name="name"
-          value={state.name}
-          onChange={handleChange}
-          placeholder="Full Name"
-          className="name-input-feild"
-        />
-        <input
-          type="text"
-          name="empid"
-          value={state.empid}
-          onChange={handleChange}
-          placeholder="Employee Id"
-          className="emp-input-feild"
-        />
-        <input
-          type="email"
-          name="email"
-          value={state.email}
-          onChange={handleChange}
-          placeholder="Email"
-          className="email-input-feild"
-        />
-        <input
-          type="password"
-          name="password"
-          value={state.password}
-          onChange={handleChange}
-          placeholder="Password"
-          className="password-input-feild"
-        />
-        <input 
-          type='text' 
-          name = 'designation'
-          value = {state.designation}
-          onChange={handleChange}
-          placeholder='Designation' 
-          className='designation-input-feild'
-        />
-        <input
-          type='text'
-          name = 'mobile'
-          value={state.mobile}
-          placeholder='Mobile'
-          className='mobile-input-feild'
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="blood_group"
-          value={state.blood_group}
-          onChange={handleChange}
-          placeholder="Blood Group"
-          className="bld-grp-input-feild"
-        />
-        <input
-          type="text"
-          name="address"
-          value={state.address}
-          onChange={handleChange}
-          placeholder="Address"
-          className="Address-input-feild"
-        />
-        {/* <button className='add-skill-button'>ADD</button> */}
-        <button type = 'submit' className = 'sign-up-button'>Sign Up</button>
+
+        <div className='name'>
+          <input
+            type="text"
+            name="name"
+            value={state.name}
+            onChange={handleChange}
+            className="name-input-feild"
+            placeholder='Fullname'
+          />
+        </div>
+
+        <div className='empid'>
+          <input
+            type="text"
+            name="empid"
+            value={state.empid}
+            onChange={handleChange}
+            placeholder="Employee Id"
+            className="emp-input-feild"
+          />
+        </div>
+
+        <div className='email'>
+          <input
+            type="email"
+            name="email"
+            value={state.email}
+            onChange={handleChange}
+            placeholder="Email"
+            className="email-input-feild"
+          />
+        </div>
+
+        <div className='password'>
+          <input
+            type="password"
+            name="password"
+            value={state.password}
+            onChange={handleChange}
+            placeholder="Create Password"
+            className="password-input-feild"
+          />
+        </div>
+
+        <div className='designation'>
+          <input 
+            type='text' 
+            name = 'designation'
+            value = {state.designation}
+            onChange={handleChange}
+            placeholder='Designation' 
+            className='designation-input-feild'
+          />
+        </div>
+
+        <div className='mobile'>
+          <input
+            type='text'
+            name = 'mobile'
+            value={state.mobile}
+            placeholder='Mobile'
+            className='mobile-input-feild'
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className='bldgrp'>
+          <input
+            type="text"
+            name="blood_group"
+            value={state.blood_group}
+            onChange={handleChange}
+            placeholder="Blood Group"
+            className="bld-grp-input-feild"
+          />
+        </div>
+
+        <div className='address'>
+          <input
+            type="text"
+            name="address"
+            value={state.address}
+            onChange={handleChange}
+            placeholder="Address"
+            className="Address-input-feild"
+          />
+        </div>
+        <div className='add-skill'>
+          <label>Add Your Skills</label>
+            <button
+              className="add-skill-button"
+              type="button"
+              onClick={handleAddSkill}
+            >
+              +
+            </button>
+            {skills.map((skill, index) => (
+              <div key={index} className="skill-row">
+                <input
+                  type="text"
+                  className='skill-text-feild'
+                  value={skill}
+                  onChange={(e) => handleSkillChange(e, index)}
+                />
+                <button
+                  className="remove-skill-button"
+                  type="button"
+                  onClick={() => handleRemoveSkill(index)}
+                >
+                  <img class = 'delete-image' src = 'https://static-00.iconduck.com/assets.00/delete-emoji-409x512-y77jpzk2.png' />
+                </button>
+              </div>
+            ))}
+          </div>
+        <div className='submit'><button type = 'submit' className = 'sign-up-button'>Sign Up</button></div>
       </form>
     </div>
   );

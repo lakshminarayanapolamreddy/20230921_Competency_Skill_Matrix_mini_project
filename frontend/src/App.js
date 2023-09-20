@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './style.css';
 import SignUpForm from './components/login/signup.js';
 import SignInForm from './components/login/signin.js';
-function App() {
 
+function App() {
   return (
     <>
       <Router>
