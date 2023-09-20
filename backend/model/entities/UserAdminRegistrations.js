@@ -5,6 +5,10 @@ module.exports=(sequelize,DataTypes)=>{
            primaryKey: true,
            autoIncrement: true
        },
+       EmployeeId:{
+        type:DataTypes.STRING,
+        allownull:false,
+       },
        FullName:{
            type:DataTypes.STRING,
            allownull:false
@@ -18,20 +22,26 @@ module.exports=(sequelize,DataTypes)=>{
            type:DataTypes.STRING,
            allownull:false
        },
-       Role:{
-           type:DataTypes.ARRAY(DataTypes.STRING),
-           defaultValue: ['User']
+       Designation:{
+        type:DataTypes.STRING,
+           allownull:false
        },
-       JWT:{
-        type:DataTypes.STRING
-
-       }
-       
+       Mobile:{
+        type:DataTypes.STRING,
+           allownull:false
+       }, 
+       BloodGroup:{
+        type:DataTypes.STRING,
+        allownull:false,
+       },
+       Address:{
+        type:DataTypes.STRING,
+        allownull:false,
+       },
     },
     {timestamp:false,
        createdAt: false,
        updatedAt:false}
-   
     )
     return UAReg;
    }

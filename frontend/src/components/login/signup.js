@@ -4,8 +4,14 @@ import { useState } from 'react';
 function SignUpForm() {
   const [state, setState] = useState({
     name: "",
+    empid:"",
     email: "",
-    password: ""
+    password: "",
+    designation: "",
+    mobile: "",
+    empid:"",
+    address:"",
+    blood_group:"",
   });
   const handleChange = evt => {
     const value = evt.target.value;
@@ -29,12 +35,13 @@ function SignUpForm() {
         toast.error(d.data.message);
       } else if (d.data.message=== "All fields are mandatory ; Please fill it."){
         toast.warning(d.data.message);
+      } else if (d.data.message=== "Invalid Employee Id"){
+        toast.error(d.data.message)
       }
     })
     .catch(err=>{
       toast.error("Email And Password is not matching")
     })
-
     for (const key in state) {
       setState({
         ...state,
@@ -42,7 +49,6 @@ function SignUpForm() {
       });
     }
   };
-
   return (
     <div className="">
       <form onSubmit={handleOnSubmit}>
@@ -52,8 +58,16 @@ function SignUpForm() {
           name="name"
           value={state.name}
           onChange={handleChange}
-          placeholder="Name"
+          placeholder="Full Name"
           className="name-input-feild"
+        />
+        <input
+          type="text"
+          name="empid"
+          value={state.empid}
+          onChange={handleChange}
+          placeholder="Employee Id"
+          className="emp-input-feild"
         />
         <input
           type="email"
@@ -85,8 +99,25 @@ function SignUpForm() {
           value={state.mobile}
           placeholder='Mobile'
           className='mobile-input-feild'
+          onChange={handleChange}
         />
-        <button className='add-skill-button'>ADD</button>
+        <input
+          type="text"
+          name="blood_group"
+          value={state.blood_group}
+          onChange={handleChange}
+          placeholder="Blood Group"
+          className="bld-grp-input-feild"
+        />
+        <input
+          type="text"
+          name="address"
+          value={state.address}
+          onChange={handleChange}
+          placeholder="Address"
+          className="Address-input-feild"
+        />
+        {/* <button className='add-skill-button'>ADD</button> */}
         <button type = 'submit' className = 'sign-up-button'>Sign Up</button>
       </form>
     </div>

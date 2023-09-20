@@ -20,12 +20,8 @@ function SignInForm() {
 
   const cookies = new Cookies();
   const navigate = useNavigate()
-// console.log(cookies.UserData.FullName);
-// console.log(cookies.UserData.Role)
-// console.log(cookies[0].FullName)
   const handleOnSubmit = evt => {
     evt.preventDefault();
-
     LoginService.checkDetails(state).then((res)=>{
       console.log(res.data.message);
       if (res.data.message==="Login Successful"){
@@ -52,7 +48,7 @@ function SignInForm() {
   };
 
   return (
-    <div className="form-container sign-in-container">
+    <div className="sign-in-container">
       <form className="sign-in-form" onSubmit={handleOnSubmit}>
       <h1 className="title">Sign in</h1>
         <input
