@@ -64,6 +64,19 @@ body{
     color: #2b7c97;
     font-size: 14px;
 }
+.name-input-feild::after,
+.emp-input-feild::after,
+.email-input-feild::after,
+.password-input-feild::after,
+.designation-input-feild::after,
+.mobile-input-feild::after,
+.bld-grp-input-feild::after,
+.Address-input-feild::after {
+    content: '*';
+    color: red;
+    margin-left: 3px; /* Adjust spacing between the input text and the asterisk */
+}
+
 .submit{
     display: flex;
     width: 100%;
@@ -156,16 +169,6 @@ body{
 }
 .side-nav-bar{
     background: linear-gradient(#19105b, #472067, #7c3375, #FF6196) !important;
-}
-.create-training-button{
-    background-color: #FF6196 !important;
-    border: none !important;
-    color: white;
-    font-family: Roboto, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
-    text-transform: uppercase;
-    font-size: 12px !important;
-    border-radius: 3px;
-    height: 35px;
 }
 .page-title{
     font-family: Arial, Helvetica, sans-serif;

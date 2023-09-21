@@ -67,7 +67,6 @@ function SignUpForm() {
     <div className="Sign-up">
       <form onSubmit={handleOnSubmit}>
         <h1 className="title">Create Account</h1>
-
         <div className='name'>
           <input
             type="text"
@@ -75,7 +74,7 @@ function SignUpForm() {
             value={state.name}
             onChange={handleChange}
             className="name-input-feild"
-            placeholder='Fullname'
+            placeholder='Fullname*'
           />
         </div>
 
@@ -85,7 +84,7 @@ function SignUpForm() {
             name="empid"
             value={state.empid}
             onChange={handleChange}
-            placeholder="Employee Id"
+            placeholder="Employee Id*"
             className="emp-input-feild"
           />
         </div>
@@ -96,7 +95,7 @@ function SignUpForm() {
             name="email"
             value={state.email}
             onChange={handleChange}
-            placeholder="Email"
+            placeholder="Email*"
             className="email-input-feild"
           />
         </div>
@@ -107,7 +106,7 @@ function SignUpForm() {
             name="password"
             value={state.password}
             onChange={handleChange}
-            placeholder="Create Password"
+            placeholder="Create Password*"
             className="password-input-feild"
           />
         </div>
@@ -118,7 +117,7 @@ function SignUpForm() {
             name = 'designation'
             value = {state.designation}
             onChange={handleChange}
-            placeholder='Designation' 
+            placeholder='Designation*' 
             className='designation-input-feild'
           />
         </div>
@@ -128,7 +127,7 @@ function SignUpForm() {
             type='text'
             name = 'mobile'
             value={state.mobile}
-            placeholder='Mobile'
+            placeholder='Mobile*'
             className='mobile-input-feild'
             onChange={handleChange}
           />
@@ -140,7 +139,7 @@ function SignUpForm() {
             name="blood_group"
             value={state.blood_group}
             onChange={handleChange}
-            placeholder="Blood Group"
+            placeholder="Blood Group*"
             className="bld-grp-input-feild"
           />
         </div>
@@ -151,7 +150,7 @@ function SignUpForm() {
             name="address"
             value={state.address}
             onChange={handleChange}
-            placeholder="Address"
+            placeholder="Address*"
             className="Address-input-feild"
           />
         </div>
